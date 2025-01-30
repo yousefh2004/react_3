@@ -8,28 +8,24 @@ import Portfolio from './components/portfolio/Portfolio'
 import About from './components/about/About'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
-import { Routes } from 'react-router-dom'
-import { Route } from 'react-router-dom'
+import ProductDetails from './components/productdetails/ProductDetails'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
-
   return (
     <>
-     <Navbar />
-     <Ground />
-     
-     <Routes>
-      <Route path='/portfolio' element={<Portfolio />}>
-      </Route>
-      <Route path='/about' element={<About />}>
-      </Route>
-      <Route path='/contact' element={<Contact />}>
-      </Route>
-      <Route path='/'>
-      </Route>
-     </Routes>
-
-     <Footer />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Ground />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/about">
+          <Route index element={<About />} /> 
+          <Route path=":id" element={<About />} /> 
+        </Route>
+        <Route path="/contact" element={<Contact />} />
+        <Route path='/product/:id' element={<ProductDetails />} />
+      </Routes>
+      <Footer />
     </>
   )
 }

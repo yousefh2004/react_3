@@ -7,13 +7,13 @@ export default function Navbar() {
     <div className="navbar">
   <div className="container">
     <div className="logo">
-      <Link to={'/'}>Start Bootstrap</Link>
+      <Link to={'/'}>YYH Store</Link>
     </div>
     <div>
         <div className='uui'>
-          <Link to={'/portfolio'}>Portfolio</Link> 
-          <Link to={'/about'}>About</Link> 
-          <Link to={'/contact'}>Contact</Link>  
+          <Link to={'/portfolio'}>Categouries</Link> 
+          <Link to={'/about'}>Products</Link> 
+          <Link to={'/contact'}>Add Product</Link>  
         </div>
     </div>
   </div>
@@ -21,3 +21,4 @@ export default function Navbar() {
     </>
   )
 }
+

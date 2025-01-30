@@ -22,7 +22,7 @@ export default function Footer() {
   </div>
   <div className="ab">
     <h3>About Freelancer</h3>
-    <p>Freelance is a free to use, MIT licensed Bootstrap theme created by Start Bootstrap .</p>
+    <p>Freelance is a free to use, MIT licensed Store theme created by YYH Store .</p>
   </div>
 </div>
     </>

@@ -1,24 +1,32 @@
-import React from 'react'
+import React from 'react';
+import useAxios from '../../hook/useAxios';
+import Loading from '../loading/Loading';
+import { Link } from 'react-router-dom';
 
 export default function Portfolio() {
-  return (
-    <>
-    <h2>PORTFOLIO</h2>
-    <div className='porto'>
-    <div className="star">
-            <div className="left"></div>
-            <i className="fa-solid fa-star fa-2xl" style={{ color: "#780000" }}></i>
-            <div className="right"></div>
-          </div>
-    </div>
-    <div className='father'>
-        <img src="cabin.png" alt="" width='400px'/>
-        <img src="cake.png" alt=""  width='400px'/>
-        <img src="circus.png" alt=""  width='400px'/>
-        <img src="game.png" alt=""  width='400px'/>
-        <img src="safe.png" alt=""  width='400px'/>
-        <img src="submarine.png" alt=""  width='400px'/>
-    </div>
-    </>
-  )
+    const { data, error, isLoading } = useAxios(`https://dummyjson.com/products/category-list`);
+
+    if (isLoading) {
+        return <Loading />;
+    }
+
+    return (
+       <div className='hop'>
+        <div className="conto">
+            {error && <div className='alert alert-danger'>{error}</div>}
+            <ul className="list-unstyled">
+                {Array.isArray(data) && data.map((category, index) => (
+                    <li key={index} >
+                        <Link 
+                            to={`/about/${category}`} 
+                            className="text-decoration-none text-secondery"
+                        >
+                            {category}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </div>
+        </div>
+    );
 }
